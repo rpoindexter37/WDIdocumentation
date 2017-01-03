@@ -1,23 +1,16 @@
+<h1> <%= @article.name %></h1>
 
+<h4>
+  <%= @article.body %>
+</h4>
 
-<div class="row">
-<h1 class="col-md-8"> Hello, <%= current_user.name %>! </h1>
-
-<aside class="listOfMethods col-md-4"> <h1> My Methods </h1>
-  <ul class="list-group">
-    <% @user.articles.each do |a| %>
-      <li>
-        <h3> <%= link_to a.name, article_path(a) %> </h3>
-      </li>
-    </div>
-    <% end %>
-  </ul>
-</aside>
-
+<p>
+  created by: <%= @article.user.name %>
+</p>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Create New Article
+  Edit Article
 </button>
 
 <!-- Modal -->
@@ -28,7 +21,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Article</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit <%= @article.name %></h4>
       </div>
       <div class="modal-body">
         <%= f.text_field :name, class: "form-control", placeholder: 'title' %>
@@ -36,10 +29,16 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.submit "Create Article", class: "btn btn-primary" %>
+        <%= f.submit "Edit Article", class: "btn btn-primary" %>
 
       </div>
     </div>
   </div>
   <% end %>
 </div>
+
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Javascript</a></li>
+  <li role="presentation"><a href="#">Ruby</a></li>
+</ul>

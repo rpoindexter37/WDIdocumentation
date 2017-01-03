@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @article = Article.all
   end
 
   def show
+    if not current_user
+      redirect_to new_session_path
+    else
+      @user = User.find(params[:id])
+      @article = Article.new
+    end
   end
 
   def new
