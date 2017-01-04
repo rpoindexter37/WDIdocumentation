@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authorize, only: [:create, :update]
+  before_action :authorize, only: [:create, :update, :destroy]
 
   def index
   end
