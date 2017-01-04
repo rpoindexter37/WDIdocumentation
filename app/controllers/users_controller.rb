@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    @article = Article.all
+    @articles = Article.all
+    @rubies = Ruby.all
   end
 
   def show
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
     else
       @user = User.find(params[:id])
       @article = Article.new
+      @ruby = Ruby.new
     end
   end
 

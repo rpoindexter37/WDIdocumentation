@@ -1,43 +1,37 @@
-
-
-<h1> <%= @article.name %></h1>
+<h1> <%= @ruby.name %></h1>
 
 <h4>
-  <%= @article.body %>
+  <%= @ruby.body %>
 </h4>
 
 <p>
-  created by: <%= @article.user.name %>
+  created by: <%= @ruby.user.name %>
 </p>
 
+
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myRubyModal">
   Edit Article
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <%= form_for @article do |f| %>
+<div class="modal fade" id="myRubyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <%= form_for @ruby do |f| %>
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit <%= @article.name %></h4>
+        <h4 class="modal-title" id="myRubyModalLabel">New Ruby Article</h4>
       </div>
       <div class="modal-body">
         <%= f.text_field :name, class: "form-control", placeholder: 'title' %>
         <%= f.text_area :body, class: "form-control", placeholder: 'body' %>
       </div>
       <div class="modal-footer">
-
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-        <%= f.submit "Edit Article", class: "btn btn-primary btn-lg" %>
-
-
-          <%= link_to raw('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove'), burn_it_path, method: :delete, class: "btn btn-danger" %>
-
+        <%= f.submit "Create Article", class: "btn btn-primary" %>
+        <%= link_to raw('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove'), burn_it_ruby_path, method: :delete, class: "btn btn-danger" %>
 
       </div>
     </div>

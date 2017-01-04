@@ -11,9 +11,14 @@
 <div class="row">
   <aside class="listOfMethods col-md-3"> <h1> All Methods </h1>
     <ul class="list-group">
-      <% @article.each do |a| %>
+      <% @articles.each do |a| %>
         <li class="list-group-item">
           <%= link_to a.name, article_path(a) %>
+        </li>
+      <% end %>
+      <% @rubies.each do |a| %>
+        <li class="list-group-item">
+          <%= link_to a.name, ruby_path(a) %>
         </li>
       <% end %>
     </ul>
