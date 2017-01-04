@@ -22,8 +22,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.delete
-    user_path(@article.user_id)
+    if @article.delete
+    redirect_to user_path(@article.user_id)
+  end
   end
 
   def update
